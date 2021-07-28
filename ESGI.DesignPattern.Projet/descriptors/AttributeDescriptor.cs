@@ -11,15 +11,15 @@ namespace ESGI.DesignPattern.Projet
         private AttributeDescriptor()
         {}
 
-        public static AttributeDescriptor Create(string config, string descriptorName, Type mapperType, Type forType)
+        public static AttributeDescriptor Create(DescriptorConfig config, string descriptorName, Type mapperType, Type forType)
         {
             switch(config)
             {
-                case "boolean":
+                case boolean:
                     return new BooleanDescriptor(descriptorName, mapperType, forType);
-                case "reference":
+                case reference:
                     return new ReferenceDescriptor(descriptorName, mapperType, forType);
-                case "default":
+                case default:
                     return new DefaultDescriptor(descriptorName, mapperType, forType);
                 default:
                     throw new Exception("unknown config");
